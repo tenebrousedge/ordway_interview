@@ -16,6 +16,7 @@ public/assets/*
 storage/*
 public/packs/*
 public/packs-test/*
+tmp/
 tmp/*
 .sass-cache/*
 .circleci/*
