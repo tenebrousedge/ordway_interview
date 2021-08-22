@@ -1,24 +1,27 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is an example project, a minimal demonstration of a toy problem. It currently has no UI.
 
-Things you may want to cover:
+It's fairly easy to run:
 
-* Ruby version
+1. Clone the repository and `cd` into it
+2. Create the `.env` file (or `cp .env{.sample,}`)
+3. Run `docker-compose up`
+4. Initialize the database by running `docker-compose exec web rails db:setup`
 
-* System dependencies
+To run the tests:
 
-* Configuration
+1. Create the test database by running `docker-compose exec web rails db:setup RAILS_ENV=test`
+2. Invoke the tests with `docker-compose exec web rails test`
 
-* Database creation
+You can also avoid using Docker and follow the normal rails process:
 
-* Database initialization
+1. `bundle install`
+2. `rails db:setup`
+3. `rails s`
 
-* How to run the test suite
+You will of course need to have a local installation of postgresql for the app to use.
 
-* Services (job queues, cache servers, search engines, etc.)
+## Note:
 
-* Deployment instructions
-
-* ...
+The Dockerfile assumes that the local user has UID=1000 and GID=1000. These values can probably be overridden in the .env file or in the docker-compose file. This may not be relevant to non-Linux users.
